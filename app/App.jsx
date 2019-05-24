@@ -92,6 +92,12 @@ const DashboardAccountsOnly = Loadable({
     loading: LoadingIndicator
 });
 
+const AuthBlocktrades = Loadable({
+    loader: () =>
+        import(/* webpackChunkName: "auth-blocktrades" */ "./components/AuthBlocktrades"),
+    loading: LoadingIndicator
+});
+
 const DashboardPage = Loadable({
     loader: () =>
         import(/* webpackChunkName: "dashboard" */ "./components/Dashboard/DashboardPage"),
@@ -402,6 +408,10 @@ class App extends React.Component {
                                 <Route
                                     path="/accounts"
                                     component={DashboardAccountsOnly}
+                                />
+                                <Route
+                                    path="/auth-blocktrades"
+                                    component={AuthBlocktrades}
                                 />
                                 <Route
                                     path="/market/:marketID"
